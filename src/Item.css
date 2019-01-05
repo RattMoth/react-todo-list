@@ -1,0 +1,8 @@
+.item-line {
+  display: flex;
+  color: red;
+}
+
+button {
+  align-self: center;
+}
