@@ -5,8 +5,16 @@ const Item = ({ item }) => {
   return (
     <div className="tc item-line">
       <p>{item}</p>
-      <button className="ma3">Delete</button>
+      <Button />
     </div>
+  );
+};
+
+const Button = ({ remove }) => {
+  return (
+    <button onClick={remove} className="ma3">
+      Delete
+    </button>
   );
 };
 

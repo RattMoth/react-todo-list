@@ -16,20 +16,23 @@ class App extends Component {
     this.setState({ input: event.target.value });
   };
 
+  remove = event => {
+    // const currentList = [...this.state.list];
+    // const index = currentList.indexOf;
+    console.log('succ');
+  };
+
   addToList = () => {
     const newList = [...this.state.list];
-    console.log('input', this.state.input);
     newList.push(this.state.input);
-    console.log('newList', newList);
-    this.setState({ list: newList });
-    console.log('state.list', this.state.list);
+    this.setState({ list: newList, input: '' });
   };
 
   render() {
     return (
       <div>
         <Input add={this.addToList} inputChange={this.onInputChange} />
-        <ItemList list={this.state.list} />
+        <ItemList remove={this.remove} list={this.state.list} />
       </div>
     );
   }
@@ -45,3 +48,5 @@ export default App;
 //ToDo: Add delete button functionality
 //      Center text and style page
 //      Check React lifecycle page for help removing Item components via delete button
+
+//TODO Discover why remove function does not console log on delete btton click
