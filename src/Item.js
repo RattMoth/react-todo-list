@@ -1,20 +1,21 @@
 import React from 'react';
 import './Item.css';
 
-const Item = ({ item }) => {
-  return (
-    <div className="tc item-line">
-      <p>{item}</p>
-      <Button />
-    </div>
-  );
-};
+const Item = ({ list, toggleDone, removeItem }) => {
+  const setDone = () => {
+    return {
+      textDecoration: list.complete ? 'line-through' : 'none'
+    };
+  };
 
-const Button = ({ remove }) => {
   return (
-    <button onClick={remove} className="ma3">
-      Delete
-    </button>
+    <div className="item-line">
+      <input type="checkbox" onChange={toggleDone.bind(this, list.id)} />
+      <p style={setDone()}>{list.title}</p>
+      <button onClick={removeItem.bind(this, list.id)} className="ma3">
+        Delete
+      </button>
+    </div>
   );
 };
 

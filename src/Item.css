@@ -1,8 +1,13 @@
 .item-line {
   display: flex;
-  color: red;
+  padding: 0.5rem;
+  background-color: #ccc;
+  border-bottom: 1px black dotted;
 }
 
-button {
+input,
+button,
+p {
   align-self: center;
+  padding: 0 1rem;
 }
