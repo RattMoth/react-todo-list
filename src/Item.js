@@ -10,9 +10,15 @@ const Item = ({ list, toggleDone, removeItem }) => {
 
   return (
     <div className="item-line">
-      <input type="checkbox" onChange={toggleDone.bind(this, list.id)} />
-      <p style={setDone()}>{list.title}</p>
-      <button onClick={removeItem.bind(this, list.id)} className="ma3">
+      <input
+        className="alignCenter checkBox"
+        type="checkbox"
+        onChange={toggleDone.bind(this, list.id)}
+      />
+      <p className="alignCenter" style={setDone()}>
+        {list.title}
+      </p>
+      <button onClick={removeItem.bind(this, list.id)} className="delBtn">
         Delete
       </button>
     </div>

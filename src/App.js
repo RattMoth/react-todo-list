@@ -1,30 +1,17 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import ItemList from './ItemList';
 import Input from './Input';
+import About from './About';
+import Header from './Header';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       todoName: '',
-      list: [
-        {
-          id: Math.random(),
-          title: 'Test App',
-          complete: false
-        },
-        {
-          id: Math.random(),
-          title: 'Interview',
-          complete: false
-        },
-        {
-          id: Math.random(),
-          title: 'Get Hired',
-          complete: false
-        }
-      ]
+      list: [1]
     };
 
     this.addToList = this.addToList.bind(this);
@@ -67,20 +54,43 @@ class App extends Component {
     this.setState({ todoName: e.target.value });
   };
 
+  componentDidMount() {
+    fetch('https://jsonplaceholder.typicode.com/todos')
+      .then(response => response.json())
+      .then(items => this.setState({ list: items }));
+  }
+
   render() {
+    if (this.state.list.length === 1) {
+      return <h1>Loading Todos...</h1>;
+    }
     return (
-      <div className="container">
-        <Input
-          onInputChange={this.onInputChange}
-          todoName={this.state.todoName}
-          addToList={this.addToList}
-        />
-        <ItemList
-          toggleDone={this.toggleDone}
-          removeItem={this.removeItem}
-          list={this.state.list}
-        />
-      </div>
+      <Router>
+        <div className="container">
+          <Header />
+          <Route
+            exact
+            path="/"
+            render={props => {
+              return (
+                <React.Fragment>
+                  <Input
+                    onInputChange={this.onInputChange}
+                    todoName={this.state.todoName}
+                    addToList={this.addToList}
+                  />
+                  <ItemList
+                    toggleDone={this.toggleDone}
+                    removeItem={this.removeItem}
+                    list={this.state.list}
+                  />
+                </React.Fragment>
+              );
+            }}
+          />
+          <Route path="/about" component={About} />
+        </div>
+      </Router>
     );
   }
 }

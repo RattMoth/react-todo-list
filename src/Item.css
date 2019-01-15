@@ -2,12 +2,22 @@
   display: flex;
   padding: 0.5rem;
   background-color: #ccc;
-  border-bottom: 1px black dotted;
+  border-bottom: 1px black solid;
 }
 
-input,
-button,
-p {
+.alignCenter {
   align-self: center;
   padding: 0 1rem;
+}
+
+.delBtn {
+  margin: 1rem 3rem 1rem auto;
+  padding: 0.5rem 1rem;
+  justify-self: flex-end;
+}
+
+.checkBox {
+  margin-left: 2rem;
+  padding: 1rem;
+  transform: scale(1.5);
 }
