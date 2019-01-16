@@ -9,7 +9,7 @@ function Header() {
         Home
       </Link>{' '}
       |{' '}
-      <Link style={linkStyle} to="/react-todo-list/about">
+      <Link style={linkStyle} to="/about">
         About
       </Link>
     </header>

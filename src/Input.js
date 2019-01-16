@@ -1,15 +1,6 @@
 import React, { Component } from 'react';
 
 class Input extends Component {
-  // state = {
-  //   todoName: ''
-  // };
-
-  // onInputChange = e => {
-  //   e.preventDefault();
-  //   this.setState({ todoName: e.target.value });
-  // };
-
   render() {
     const { addToList, onInputChange } = this.props;
     return (

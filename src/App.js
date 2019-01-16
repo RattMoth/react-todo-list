@@ -46,7 +46,7 @@ class App extends Component {
       title: this.state.todoName,
       complete: false
     };
-    this.setState({ todoName: '', list: [...this.state.list, newItem] });
+    this.setState({ todoName: '', list: [newItem, ...this.state.list] });
   };
 
   onInputChange = e => {
@@ -88,7 +88,7 @@ class App extends Component {
               );
             }}
           />
-          <Route path="react-todo-list/about" component={About} />
+          <Route path="/about" component={About} />
         </div>
       </Router>
     );
