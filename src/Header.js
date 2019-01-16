@@ -5,11 +5,11 @@ function Header() {
   return (
     <header style={headerStyle}>
       <h1>Todos</h1>
-      <Link style={linkStyle} to="/">
+      <Link style={linkStyle} to="/react-todo-list">
         Home
       </Link>{' '}
       |{' '}
-      <Link style={linkStyle} to="/About">
+      <Link style={linkStyle} to="/react-todo-list/About">
         About
       </Link>
     </header>
