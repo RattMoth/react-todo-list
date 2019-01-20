@@ -4,7 +4,10 @@ class Input extends Component {
   render() {
     const { addToList, onInputChange } = this.props;
     return (
-      <form style={{ display: 'flex' }} onSubmit={addToList}>
+      <form
+        style={{ display: 'flex', maxWidth: '80%', margin: 'auto' }}
+        onSubmit={addToList}
+      >
         <input
           style={{ flex: '10' }}
           onChange={onInputChange}

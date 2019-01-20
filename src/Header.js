@@ -17,10 +17,12 @@ function Header() {
 }
 
 const headerStyle = {
-  background: '#333',
+  background: '#33363b',
   color: '#fff',
   textAlign: 'center',
-  padding: '1rem'
+  padding: '1rem',
+  maxWidth: '80%',
+  margin: 'auto'
 };
 
 const linkStyle = {
