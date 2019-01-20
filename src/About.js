@@ -17,7 +17,7 @@ const About = () => {
         <br />
         <br />
         All source code can be found at{' '}
-        <a href="https://github.com/RattMoth/reactAppPractice">
+        <a href="https://github.com/RattMoth/react-todo-list">
           here at my GitHub page.
         </a>
       </p>
