@@ -8,15 +8,15 @@ const About = () => {
         This is a simple Todo app created with ReactJS. Each todo item is
         imported from{' '}
         <a href="https://jsonplaceholder.typicode.com/todos">
-          https://jsonplaceholder.typicode.com/todos
+          jsonplaceholder.com
         </a>
         . Because this file contains 200 todo items, the number of displayed
         items was limited to 10 at a time, in order to avoid clutter. As each
-        item is removed a new item from farther down the list is called to take
-        its place.
+        item is removed a new item from farther down the list is called to fill
+        the empty spot.
         <br />
         <br />
-        All source code can be found at{' '}
+        All source code can be found{' '}
         <a href="https://github.com/RattMoth/react-todo-list">
           here at my GitHub page.
         </a>
@@ -27,7 +27,7 @@ const About = () => {
 
 const backgroundStyle = {
   backgroundColor: 'white',
-  padding: '1em',
+  padding: '1em 1em 3em 1em',
   maxWidth: '80%',
   margin: 'auto'
 };
