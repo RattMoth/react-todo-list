@@ -41,12 +41,16 @@ class App extends Component {
   // Called on form submit. Input.js
   addToList = e => {
     e.preventDefault();
+    if (this.state.todoName.length === 0) {
+      alert('Please enter some text');
+    } else {
     const newItem = {
       id: Math.random(),
       title: this.state.todoName,
       complete: false
     };
     this.setState({ todoName: '', list: [newItem, ...this.state.list] });
+  }
   };
 
   onInputChange = e => {
