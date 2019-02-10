@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+// import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import ItemList from './ItemList';
 import Input from './Input';
@@ -11,7 +11,8 @@ class App extends Component {
     super();
     this.state = {
       todoName: '',
-      list: [1]
+      list: [1],
+      route: 'home'
     };
 
     this.addToList = this.addToList.bind(this);
@@ -44,18 +45,22 @@ class App extends Component {
     if (this.state.todoName.length === 0) {
       alert('Please enter some text');
     } else {
-    const newItem = {
-      id: Math.random(),
-      title: this.state.todoName,
-      complete: false
-    };
-    this.setState({ todoName: '', list: [newItem, ...this.state.list] });
-  }
+      const newItem = {
+        id: Math.random(),
+        title: this.state.todoName,
+        complete: false
+      };
+      this.setState({ todoName: '', list: [newItem, ...this.state.list] });
+    }
   };
 
   onInputChange = e => {
     e.preventDefault();
     this.setState({ todoName: e.target.value });
+  };
+
+  changeRoute = location => {
+    this.setState({ route: location });
   };
 
   componentDidMount() {
@@ -69,32 +74,25 @@ class App extends Component {
       return <h1>Loading Todos...</h1>;
     }
     return (
-      <Router>
-        <div className="container">
-          <Header />
-          <Route
-            exact
-            path="/react-todo-list"
-            render={props => {
-              return (
-                <React.Fragment>
-                  <Input
-                    onInputChange={this.onInputChange}
-                    todoName={this.state.todoName}
-                    addToList={this.addToList}
-                  />
-                  <ItemList
-                    toggleDone={this.toggleDone}
-                    removeItem={this.removeItem}
-                    list={this.state.list}
-                  />
-                </React.Fragment>
-              );
-            }}
-          />
-          <Route path="/about" component={About} />
-        </div>
-      </Router>
+      <div className="App">
+        <Header changeRoute={this.changeRoute} />
+        {this.state.route === 'home' ? (
+          <div>
+            <Input
+              onInputChange={this.onInputChange}
+              todoName={this.state.todoName}
+              addToList={this.addToList}
+            />
+            <ItemList
+              toggleDone={this.toggleDone}
+              removeItem={this.removeItem}
+              list={this.state.list}
+            />
+          </div>
+        ) : (
+          <About />
+        )}
+      </div>
     );
   }
 }
