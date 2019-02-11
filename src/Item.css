@@ -14,13 +14,14 @@
 }
 
 .delBtn {
-  margin: 1rem 3rem 1rem auto;
+  margin: 1rem 0.3rem 1rem auto;
   padding: 0.5rem 1rem;
   justify-self: flex-end;
+  max-height: 2rem;
 }
 
 .checkBox {
-  margin-left: 2rem;
+  margin-left: 0.4rem;
   padding: 1rem;
   transform: scale(1.5);
 }

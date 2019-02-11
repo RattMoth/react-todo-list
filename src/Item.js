@@ -18,7 +18,10 @@ const Item = ({ list, toggleDone, removeItem }) => {
       <p className="alignCenter" style={setDone()}>
         {list.title}
       </p>
-      <button onClick={removeItem.bind(this, list.id)} className="delBtn">
+      <button
+        onClick={removeItem.bind(this, list.id)}
+        className="delBtn alignCenter"
+      >
         Delete
       </button>
     </div>

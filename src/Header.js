@@ -3,7 +3,7 @@ import React from 'react';
 const Header = ({ changeRoute }) => {
   return (
     <header style={headerStyle}>
-      <h1>Todos</h1>
+      <h1>Todo List</h1>
       <div style={center}>
         <p style={linkStyle} onClick={() => changeRoute('home')}>
           Home

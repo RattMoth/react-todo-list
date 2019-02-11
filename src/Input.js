@@ -19,7 +19,16 @@ class Input extends Component {
           placeholder="Enter New Item"
           value={this.props.todoName}
         />
-        <button style={{ flex: '1', height: '3rem' }}>Enter</button>
+        <button
+          style={{
+            flex: '1',
+            height: '3rem',
+            paddingRight: '1rem',
+            paddingLeft: '1rem'
+          }}
+        >
+          Enter
+        </button>
       </form>
     );
   }
