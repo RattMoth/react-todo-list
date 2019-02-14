@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-// import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
-import ItemList from './ItemList';
-import Input from './Input';
+import ItemList from './itemList/ItemList';
+import Input from './Header/Input/Input';
 import About from './About';
-import Header from './Header';
+import Header from './Header/Header';
+import Welcome from './itemList/Welcome';
 
 class App extends Component {
   constructor() {
@@ -12,7 +12,7 @@ class App extends Component {
     this.state = {
       todoName: '',
       list: [1],
-      route: 'home'
+      route: 'welcome'
     };
 
     this.addToList = this.addToList.bind(this);
@@ -75,9 +75,11 @@ class App extends Component {
     }
     return (
       <div className="App">
-        <Header changeRoute={this.changeRoute} />
-        {this.state.route === 'home' ? (
+        {this.state.route === 'welcome' ? (
+          <Welcome changeRoute={this.changeRoute} />
+        ) : this.state.route === 'home' ? (
           <div>
+            <Header changeRoute={this.changeRoute} />
             <Input
               onInputChange={this.onInputChange}
               todoName={this.state.todoName}
@@ -90,7 +92,10 @@ class App extends Component {
             />
           </div>
         ) : (
-          <About />
+          <div>
+            <Header changeRoute={this.changeRoute} />
+            <About />
+          </div>
         )}
       </div>
     );
